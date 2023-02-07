@@ -83,6 +83,8 @@ import ZoomDemo from "./trasitions-demo/Zoom";
 import StyleDemo from "./StyleDemo";
 import { createTheme, ThemeProvider, styled } from "./lib/components/Styles";
 import OtherWrapperDemo from "./OtherWrapperDemo";
+import { StyledEngineProvider } from "@mui/styled-engine-sc";
+
 const themeRP = createTheme({
   palette: {
     primary: {
@@ -276,6 +278,7 @@ function App(props) {
 
   return (
     <React.Fragment>
+      <StyledEngineProvider injectFirst>
       <CssBaseline />
       <ThemeProvider theme={theme ? themeRP : themeBB}>
         <MiniDrawer theme={{ t: theme, f: setTheme }} />
@@ -783,6 +786,8 @@ function App(props) {
           </Paper>
         </footer>
       </ThemeProvider>
+      </StyledEngineProvider>
+      
     </React.Fragment>
   );
 }

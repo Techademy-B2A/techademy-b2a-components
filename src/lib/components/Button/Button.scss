@@ -1,0 +1,8 @@
+.MuiButton-root.MuiButton-Primary {
+    text-transform: capitalize;
+  
+    &:hover {
+      background-color: transparent;
+      color: #BC0017;
+    }
+}
