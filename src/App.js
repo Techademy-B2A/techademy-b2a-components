@@ -309,7 +309,7 @@ function App(props) {
               <Button>Primary</Button>
               <Button color="secondary">secondary</Button>
               <Button disabled>Disabled</Button>
-              <Button href="#text-buttons">Link</Button>
+              <Button variant="text" href="#text-buttons">Link</Button>
               <Divider sx={{ marginY: 2 }} />
               <FormGroup>
                 <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
