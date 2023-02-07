@@ -787,7 +787,6 @@ function App(props) {
         </footer>
       </ThemeProvider>
       </StyledEngineProvider>
-      
     </React.Fragment>
   );
 }
