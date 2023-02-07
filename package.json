@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "start": "cross-env SKIP_PREFLIGHT_CHECK=true craco start",
-    "build": "babel src/lib -d build",
+    "build": "babel src/lib --out-dir build --copy-files",
     "prepare": "npm run build"
   },
   "dependencies": {
