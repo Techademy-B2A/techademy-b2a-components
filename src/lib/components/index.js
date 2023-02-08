@@ -100,6 +100,7 @@ import Grow from "./transitions/Grow";
 import Slide from "./transitions/Slide";
 import Zoom from "./transitions/Zoom";
 import Typography from "./Typography";
+import DragDrop from "./DragDrop";
 
 export {
   Accordion,
@@ -204,4 +205,5 @@ export {
   ListItemSecondaryAction,
   ListSubheader,
   Styles,
+  DragDrop
 };

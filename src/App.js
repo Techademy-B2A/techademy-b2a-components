@@ -13,6 +13,7 @@ import Grid from "./lib/components/Grid";
 import Stack from "./lib/components/Stack";
 import Paper from "./lib/components/Paper";
 import Button from "./lib/components/Button";
+import DragDrop from "./lib/components/DragDrop";
 import ButtonGroup from "./lib/components/Button/ButtonGroup";
 import Autocomplete from "./lib/components/Autocomplete";
 import TextField from "./lib/components/TextField";
@@ -96,7 +97,7 @@ const themeRP = createTheme({
     secondary: {
       light: "#75C3C0",
       main: "#077C78",
-      mainGradient: "linear-gradient(to top,#fff700,#ffffff)",
+      mainGradient: "#fff)",
       dark: "#077C78",
       contrastText: "#fffff",
     },
@@ -151,7 +152,15 @@ const columns = [
     },
   },
 ];
-
+const top100Films = [
+  { title: 'The Shawshank Redemption', year: 1994 },
+  { title: 'The Godfather', year: 1972 },
+  { title: 'The Godfather: Part II', year: 1974 },
+  { title: 'The Dark Knight', year: 2008 },
+  { title: '12 Angry Men', year: 1957 },
+  { title: "Schindler's List", year: 1993 },
+  { title: 'Pulp Fiction', year: 1994 },
+];
 const rows = [
   { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
@@ -281,10 +290,10 @@ function App(props) {
       <StyledEngineProvider injectFirst>
       <CssBaseline />
       <ThemeProvider theme={theme ? themeRP : themeBB}>
-        <MiniDrawer theme={{ t: theme, f: setTheme }} />
+        {/* <MiniDrawer theme={{ t: theme, f: setTheme }} /> */}
         <Container>
           <Box>
-            <AppBarDemo />
+            {/* <AppBarDemo /> */}
           </Box>
           <Box sx={{ display: "flex" }}>
             <Box
@@ -301,6 +310,26 @@ function App(props) {
                 options={data}
                 sx={{ width: 300 }}
                 renderInput={(params) => <TextField {...params} label="Movie" />}
+              />
+              <br/>
+              <Autocomplete
+                multiple
+                id="tags-outlined"
+                options={top100Films}
+                getOptionLabel={(option) => option?.title}
+                defaultValue={[top100Films[2]]}
+                filterSelectedOptions
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="filterSelectedOptions"
+                    placeholder="Favorites"
+                  />
+                )}
+              />
+              <br/>
+              <DragDrop
+                onChange={(files) => console.log('Files:', files)}
               />
               <Divider sx={{ marginY: 2 }} />
               <Button variant="text">Text</Button>
@@ -367,14 +396,6 @@ function App(props) {
                   <Typography color="text.primary">Breadcrumbs</Typography>
                 </Breadcrumbs>
               </div>
-              <Divider sx={{ marginY: 2 }} />
-              <Avatar>AG</Avatar>
-              <Divider />
-              <Avatar>OP</Avatar>
-              <Divider variant="middle" />
-              <StyledBadge overlap="circular" anchorOrigin={{ vertical: "bottom", horizontal: "right" }} variant="dot">
-                <Avatar>MY</Avatar>
-              </StyledBadge>
               <Divider sx={{ marginY: 2 }} />
               <Chip label="Clickable" variant="outlined" onClick={() => {}} onDelete={() => {}} />
               <Divider sx={{ marginY: 2 }} />
@@ -561,7 +582,7 @@ function App(props) {
                 </Backdrop>
               </div>
               <Divider sx={{ marginY: 2 }} />
-              <Grid container sx={{ backgroundColor: "#fff", p: 2 }} justifyContent="center">
+              {/* <Grid container sx={{ backgroundColor: "#fff", p: 2 }} justifyContent="center">
                 <Grid item md={6} xs={12}>
                   <Typography
                     variant="subtitle1"
@@ -596,7 +617,7 @@ function App(props) {
                     </Paper>
                   </Stack>
                 </Grid>
-              </Grid>
+              </Grid> */}
               <Divider sx={{ marginY: 2 }} />
               <Box mt={2}>
                 <Typography mb={2} variant="subtitle2" color="primary">
@@ -609,12 +630,11 @@ function App(props) {
                 </ButtonGroup>
               </Box>
               <Divider sx={{ marginY: 2 }} />
-              <Box>
+              {/* <Box>
                 <Typography mb={2} variant="subtitle2" color="primary">
                   Floating Action Buttons(Fab)
                 </Typography>
                 <Fab color="primary" aria-label="add">
-                  {/* <AddIcon /> */}
                 </Fab>
                 <Fab color="secondary" aria-label="edit">
                   <EditIcon />
@@ -626,7 +646,7 @@ function App(props) {
                 <Fab disabled aria-label="like">
                   <FavoriteIcon />
                 </Fab>
-              </Box>
+              </Box> */}
               <Divider sx={{ marginY: 2 }} />
               <BasicRating />
               <Divider sx={{ marginY: 2 }} />
@@ -652,13 +672,13 @@ function App(props) {
                 </Typography>
                 <NoSsrDemo />
               </Box>
-              <Divider sx={{ marginY: 2 }} />
+              {/* <Divider sx={{ marginY: 2 }} />
               <Box>
                 <Typography variant="subtitle1" color="primary">
                   Folder List
                 </Typography>
                 <ListDemo />
-              </Box>
+              </Box> */}
               <Divider sx={{ marginY: 2 }} />
               <Box>
                 <Typography variant="subtitle1" color="primary">
@@ -693,12 +713,12 @@ function App(props) {
                 <DialogDemo />
               </Box>
               <Divider sx={{ marginY: 2 }} />
-              <Box>
+              {/* <Box>
                 <Typography variant="subtitle1" color="primary">
                   Skeleton Demo
                 </Typography>
                 <SkeletonDemo />
-              </Box>
+              </Box> */}
               <Divider sx={{ marginY: 2 }} />
               <Box>
                 <Typography variant="subtitle1" color="primary">
@@ -735,7 +755,7 @@ function App(props) {
                 <PortalDemo />
               </Box>
               <Divider sx={{ marginY: 2 }} />
-              <Grid container spacing={2}>
+              {/* <Grid container spacing={2}>
                 <Grid item xs={6}>
                   <Typography variant="subtitle1"> Collapse </Typography>
                   <CollapseDemo />
@@ -744,8 +764,8 @@ function App(props) {
                   <Typography variant="subtitle1"> Grow </Typography>
                   <GrowDemo />
                 </Grid>
-              </Grid>
-              <Divider sx={{ marginY: 2 }} />
+              </Grid> */}
+              {/* <Divider sx={{ marginY: 2 }} />
               <Grid container spacing={2}>
                 <Grid item xs={6}>
                   <Typography variant="subtitle1"> Fade </Typography>
@@ -755,7 +775,7 @@ function App(props) {
                   <Typography variant="subtitle1"> Slide </Typography>
                   <SlideDemo />
                 </Grid>
-              </Grid>
+              </Grid> */}
               <Divider sx={{ marginY: 2 }} />
               <Box>
                 <Typography variant="subtitle1" color="primary">
