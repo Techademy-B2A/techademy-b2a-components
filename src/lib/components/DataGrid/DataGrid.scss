@@ -1,0 +1,19 @@
+.MuiDataGrid-root .MuiDataGrid-row{
+    border-top: 1px solid #CBD2DC;
+}
+
+.MuiButtonBase-root-MuiCheckbox-root{
+    color: #68747B;
+}
+
+.MuiDataGrid-columnHeader {
+    .MuiDataGrid-columnHeaderDraggableContainer {
+      .MuiDataGrid-columnHeaderTitleContainer {
+        .MuiDataGrid-columnHeaderTitleContainerContent{
+            .MuiDataGrid-columnHeaderTitle{
+                font-weight: 700;
+            }
+        }
+      }
+    }
+}
